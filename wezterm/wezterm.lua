@@ -2,7 +2,7 @@
 local wezterm = require("wezterm")
 local act = wezterm.action
 local config = wezterm.config_builder()
-
+config.enable_wayland = false
 config.front_end = OpenGL
 config.max_fps = 60
 config.default_cursor_style = SteadyBlock
@@ -66,9 +66,20 @@ config.color_scheme = "Later This Evening (Gogh)"
 --keymaps
 config.keys = {
 	{
+
 		key = "o",
 		mods = "CTRL | ALT",
 		action = act.EmitEvent("toggle-opacity"),
+	},
+	{
+		key = "v",
+		mods = "ALT | SHIFT",
+		action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }),
+	},
+	{
+		key = "h",
+		mods = "ALT | SHIFT",
+		action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }),
 	},
 }
 
