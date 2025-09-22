@@ -1,0 +1,54 @@
+@define-color background #0C0C1C;
+@define-color foreground #80FFD7;
+@define-color accent #3399FF;
+@define-color urgent #FF5555;
+
+* {
+    font-family: "Monospace", "FiraCode Nerd Font", monospace;
+    font-size: 14px;
+    color: @foreground;
+}
+
+.notification {
+    background: 
+        repeating-linear-gradient(
+            to bottom,
+            rgba(255, 255, 255, 0.05),
+            rgba(255, 255, 255, 0.05) 1px,
+            transparent 1px,
+            transparent 2px
+        ),
+        @background;
+    border: 1px solid @accent;
+    border-radius: 4px;
+    padding: 8px;
+}
+.notification, .notification-header, .notification-body {
+    text-shadow: 0 0 2px @accent, 0 0 5px @accent;
+}
+
+.notification.critical {
+    border-color: @urgent;
+    color: #FFDADA;
+}
+
+.notification-header {
+    color: @accent;
+    font-weight: bold;
+}
+.notification-body {
+    color: @foreground;
+}
+
+.notification-action {
+background: shade(@background, 1.2);
+border: 1px solid @accent;
+    border-radius: 3px;
+    padding: 4px 8px;
+}
+
+.notification-action:hover {
+    background: @accent;
+    color: @background;
+}
+
