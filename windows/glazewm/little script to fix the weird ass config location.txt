@@ -1,3 +1,0 @@
-winget install GlazeWM
-./glazewm.exe start --config="%userprofile%\.config\glazewm\config.yaml"
-
