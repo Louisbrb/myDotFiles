@@ -45,32 +45,25 @@ wezterm.on("toggle-opacity", function(window, pane)
     window:set_config_overrides(overrides)
 end)
 
--- ── Lunar palette ─────────────────────────────────────────
--- void #0b0e1a · nebula #151a2e · dusk #1a1530 · stardust #e2e4f3
--- moonglow #c4b5fd · comet #7dd3fc · eclipse #f0abfc
--- solar #fbbf24 · supernova #f87171 · crater #6b7194
-
 Colors_lunar = {
-    "#070912", -- abyss
-    "#0b0e1a", -- void
-    "#120e26", -- dusk
-    "#1a1530", -- deep purple horizon
+    "#070912",
+    "#0b0e1a",
+    "#120e26",
+    "#1a1530",
 }
 
 config.window_background_gradient = {
     orientation = "Horizontal",
-    -- colors = reverse(Colors_lunar),
     colors = Colors_lunar,
     interpolation = "Linear",
     blend = "Rgb",
 }
 
--- full lunar color scheme instead of "Banana Blueberry"
 config.colors = {
-    foreground = "#e2e4f3", -- stardust
-    background = "#0b0e1a", -- void (under the gradient)
+    foreground = "#e2e4f3",
+    background = "#0b0e1a",
 
-    cursor_bg = "#c4b5fd",  -- moonglow block
+    cursor_bg = "#c4b5fd",
     cursor_fg = "#0b0e1a",
     cursor_border = "#c4b5fd",
 
@@ -150,6 +143,11 @@ config.keys = {
         key = "o",
         mods = "ALT | SHIFT",
         action = act.EmitEvent("toggle-opacity"),
+    },
+    {
+        key = "h",
+        mods = "ALT | SHIFT",
+        action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }),
     },
     {
         key = "v",

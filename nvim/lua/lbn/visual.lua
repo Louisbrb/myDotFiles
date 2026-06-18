@@ -18,9 +18,5 @@ vim.opt.scrolloff = 8
 vim.opt.list = true
 vim.opt.listchars = { space = '·' }
 -- vim.api.nvim_set_hl(0, 'Whitespace', { fg = '#111111' })
-vim.api.nvim_create_autocmd("BufWritePre", {
-    pattern = "*",
-    callback = function()
-        vim.lsp.buf.format()
-    end,
-})
+-- Format-on-save is handled per-LSP in config/lsp.lua (only for buffers
+-- whose server supports formatting), so no global hook is needed here.
